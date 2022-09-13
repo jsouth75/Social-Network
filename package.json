@@ -1,0 +1,30 @@
+{
+  "name": "social-network",
+  "version": "1.0.0",
+  "description": "social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsouth75/Social-Network.git"
+  },
+  "keywords": [
+    "API",
+    "Mongoose",
+    "Express.js",
+    "JavaScript",
+    "MongoDB"
+  ],
+  "author": "Jason South",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsouth75/Social-Network/issues"
+  },
+  "homepage": "https://github.com/jsouth75/Social-Network#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.0"
+  }
+}
