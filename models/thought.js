@@ -40,6 +40,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: String,
             required: true,
+            default: Date.now()
         },
         username: {
             type: Schema.Types.ObjectId,
