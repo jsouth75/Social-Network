@@ -3,13 +3,13 @@ const { thought } = require('../../models')
 
 // Get all thoughts
 router.get('/', async (req, res) => {
-    const allThoughts = await thought.find({})
+    const allThoughts = await thought.find(req.body)
     res.json(allThoughts)
 })
 
 // Get thought by Id
 router.get('/:thoughtId', async (req, res) => {
-    const thoughtById = await thought.findById({})
+    const thoughtById = await thought.findOne(req.body)
     res.json(thoughtById)
 })
 
@@ -35,15 +35,15 @@ router.delete('/:thoughtId', async (req, res) => {
 })
 
 // Create Reaction 
-router.post('/:thougthId/reactions', async (req, res) => {
-    const createReaction = await thought.create(req.body)
+router.post('/:thoughtId/reactions', async (req, res) => {
+    const createReaction = await thought.findOneAndUpdate(req.body)
     console.log(createReaction)
     res.send("New Reaction")
 })
 
 // Delete Reaction
 router.delete('/:thoughtId/reactions/:reactionId', async (req, res) => {
-    const reactionById = await thought.findByIdAndDelete(req.body)
+    const reactionById = await thought.findOneAndDelete(req.body)
     console.log(reactionById)
     res.send("Reaction deleted")
 })

@@ -3,13 +3,13 @@ const { user } = require('../../models')
 
 // Get all users
 router.get('/', async (req, res) => {
-    const allUsers = await user.find({})
+    const allUsers = await user.find(req.body)
     res.json(allUsers)
 })
 
 // Get User by Id
 router.get('/:userId', async (req, res) => {
-    const userById = await user.findById({})
+    const userById = await user.findOne(req.body)
     res.json(userById)
 })
 
@@ -36,7 +36,7 @@ router.delete('/:userId', async (req, res) => {
 
 // Create Friend
 router.post('/:userId/friends/:friendId', async (req, res) => {
-    const newFriend = await user.create(req.body)
+    const newFriend = await user.findOneAndUpdate(req.body)
     console.log(newFriend)
     res.send("New friend added to user's friend list")
 })
