@@ -36,7 +36,9 @@ router.delete('/:thoughtId', async (req, res) => {
 
 // Create Reaction 
 router.post('/:thoughtId/reactions', async (req, res) => {
-    const createReaction = await thought.findOneAndUpdate(req.body)
+    const createReaction = await thought.findOneAndUpdate({_id: req.params.thoughtId},
+        { $addToSet: {reactions: req.body}},
+        { runValidators: true, new: true })
     console.log(createReaction)
     res.send("New Reaction")
 })

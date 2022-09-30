@@ -36,7 +36,8 @@ router.delete('/:userId', async (req, res) => {
 
 // Create Friend
 router.post('/:userId/friends/:friendId', async (req, res) => {
-    const newFriend = await user.findOneAndUpdate(req.body)
+    const newFriend = await user.findOneAndUpdate({ _id: req.params.userId },
+        { $addToSet: {friends: req.params.friendId }})
     console.log(newFriend)
     res.send("New friend added to user's friend list")
 })
